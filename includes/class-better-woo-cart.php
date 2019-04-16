@@ -77,7 +77,8 @@ class Better_Woo_Cart {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
+		// $this->define_public_hooks(); disabled from being called, called inside shortcodes
+		$this->define_shortcodes();
 
 	}
 
@@ -90,6 +91,7 @@ class Better_Woo_Cart {
 	 * - Better_Woo_Cart_i18n. Defines internationalization functionality.
 	 * - Better_Woo_Cart_Admin. Defines all hooks for the admin area.
 	 * - Better_Woo_Cart_Public. Defines all hooks for the public side of the site.
+	 * - Better_Woo_Cart_Shortcodes. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -121,6 +123,8 @@ class Better_Woo_Cart {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-better-woo-cart-public.php';
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'shortcodes/class-shortcodes.php';
 
 		$this->loader = new Better_Woo_Cart_Loader();
 
@@ -172,6 +176,19 @@ class Better_Woo_Cart {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+	}
+
+	/**
+	 * Register all shortcodes
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_shortcodes() {
+
+		$plugin_shortcodes = new Better_Woo_Cart_Shortcodes( $this->get_plugin_name(), $this->get_version() );
 
 	}
 

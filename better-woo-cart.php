@@ -1,28 +1,22 @@
 <?php
 
-/**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              https://mydigitalsauce.com
- * @since             1.0.0
- * @package           Better_Woo_Cart
- *
- * @wordpress-plugin
- * Plugin Name:        Better WooCommerce Cart
+/*
+ * Plugin Name:			Better WooCommerce Cart
  * Plugin URI:        https://mydigitalsauce.com
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Description:       Gives you available shortcodes to display a cart button that reveals an offcanvas right sidebar that has a WooCommerce Cart.
+ * Version:           0.0.1
  * Author:            MyDigitalSauce
  * Author URI:        https://mydigitalsauce.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       better-woo-cart
  * Domain Path:       /languages
+ */
+
+ /*
+ * @link              https://mydigitalsauce.com
+ * @since             0.0.1
+ * @package           Better_Woo_Cart
  */
 
 // If this file is called directly, abort.
@@ -32,10 +26,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Start at version 0.0.1 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'BETTER_WOO_CART_VERSION', '1.0.0' );
+define( 'BETTER_WOO_CART_VERSION', '0.0.1' );
 
 /**
  * The code that runs during plugin activation.
@@ -71,7 +65,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-better-woo-cart.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since    0.0.1
  */
 function run_better_woo_cart() {
 
